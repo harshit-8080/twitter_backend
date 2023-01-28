@@ -1,0 +1,45 @@
+Question 1 => What is the lean() method in Mongoose?
+
+Answer   =>
+            1.   When you document queried, They are returned as Mongoose Objects.
+            2.   With lean() method, the documents are returned as plain objects.
+            3.   But now we can't use save, getters and setters methods with plain objects.
+            4.   const persons = await Person.find().lean();
+
+================================================================>>
+
+Question 2 => limit() and skip() methods in Mongoose.
+
+Answer   =>
+            1.   const responses = await Twee.find().skip(2).limit(10);
+            2.   skip() used to skip some records and limit() limits the number of records
+            3.   limit is like limit in sequelize. and skip is like offset in sequelize.
+
+
+================================================================>>
+virtuals
+Virtuals are document properties that you can get and set but that do not get persisted to MongoDB. 
+The getters are useful for formatting or combining fields, 
+while setters are useful for de-composing a single value into multiple values for storage.
+
+
+
+================================================================>>
+Document Middleware, ==> (hooks like in sequelize)
+
+Schema.pre() and Schema.post()
+Middleware (also called pre and post hooks) are functions.
+Which are passed control during execution of asynchronous functions. 
+Example ==>
+    schema.pre('validate', function() {
+    console.log('this gets printed first');
+    });
+    schema.post('validate', function() {
+    console.log('this gets printed second');
+    });
+    schema.pre('save', function() {
+    console.log('this gets printed third');
+    });
+    schema.post('save', function() {
+    console.log('this gets printed fourth');
+    });

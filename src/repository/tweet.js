@@ -33,6 +33,27 @@ class TweetRepository {
       throw error;
     }
   }
+  async getByLimitAndSkip(skip, limit) {
+    try {
+      //! limit() and skip() ==> For Pagination
+      const response = await Tweet.find().skip(skip).limit(limit);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getById(id) {
+    try {
+      const response = await Tweet.findById(id);
+      return {
+        response,
+        getEmailAndContent: response.getEmailAndContent,
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = new TweetRepository();
