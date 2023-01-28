@@ -15,3 +15,9 @@ Answer   =>
             2.   skip() used to skip some records and limit() limits the number of records
             3.   limit is like limit in sequelize. and skip is like offset in sequelize.
 
+
+================================================================>>
+virtuals
+Virtuals are document properties that you can get and set but that do not get persisted to MongoDB. 
+The getters are useful for formatting or combining fields, 
+while setters are useful for de-composing a single value into multiple values for storage.
