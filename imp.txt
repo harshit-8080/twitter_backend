@@ -21,3 +21,25 @@ virtuals
 Virtuals are document properties that you can get and set but that do not get persisted to MongoDB. 
 The getters are useful for formatting or combining fields, 
 while setters are useful for de-composing a single value into multiple values for storage.
+
+
+
+================================================================>>
+Document Middleware, ==> (hooks like in sequelize)
+
+Schema.pre() and Schema.post()
+Middleware (also called pre and post hooks) are functions.
+Which are passed control during execution of asynchronous functions. 
+Example ==>
+    schema.pre('validate', function() {
+    console.log('this gets printed first');
+    });
+    schema.post('validate', function() {
+    console.log('this gets printed second');
+    });
+    schema.pre('save', function() {
+    console.log('this gets printed third');
+    });
+    schema.post('save', function() {
+    console.log('this gets printed fourth');
+    });

@@ -31,6 +31,16 @@ const tweetSchema = new Schema(
   { timestamps: true }
 );
 
+tweetSchema.pre("save", function (next) {
+  this.content = this.content + "saturday";
+  console.log("pre");
+  next();
+});
+
+tweetSchema.post("save", function () {
+  console.log("post");
+});
+
 const Tweet = mongoose.model("Tweet", tweetSchema);
 
 module.exports = Tweet;
