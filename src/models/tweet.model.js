@@ -19,6 +19,15 @@ const tweetSchema = new Schema(
       },
     ],
   },
+  {
+    virtuals: {
+      getEmailAndContent: {
+        get() {
+          return { email: this.email, content: this.content };
+        },
+      },
+    },
+  },
   { timestamps: true }
 );
 

@@ -1,4 +1,4 @@
-Question => What is the lean() method in Mongoose?
+Question 1 => What is the lean() method in Mongoose?
 
 Answer   =>
             1.   When you document queried, They are returned as Mongoose Objects.
@@ -6,4 +6,12 @@ Answer   =>
             3.   But now we can't use save, getters and setters methods with plain objects.
             4.   const persons = await Person.find().lean();
 
+================================================================>>
+
+Question 2 => limit() and skip() methods in Mongoose.
+
+Answer   =>
+            1.   const responses = await Twee.find().skip(2).limit(10);
+            2.   skip() used to skip some records and limit() limits the number of records
+            3.   limit is like limit in sequelize. and skip is like offset in sequelize.
 
