@@ -1,0 +1,9 @@
+Question => What is the lean() method in Mongoose?
+
+Answer   =>
+            1.   When you document queried, They are returned as Mongoose Objects.
+            2.   With lean() method, the documents are returned as plain objects.
+            3.   But now we can't use save, getters and setters methods with plain objects.
+            4.   const persons = await Person.find().lean();
+
+
