@@ -43,3 +43,24 @@ Example ==>
     schema.post('save', function() {
     console.log('this gets printed fourth');
     });
+
+
+
+
+================================================================>>
+
+QUERY CHAINING
+
+    // investorModel.count() - return count
+    // investorModel.find({}).sort("name") - return in ascending order
+    // investorModel.find({}).sort("-name") - return in descending order
+    // investorModel.find({}).limit(4) - returns top 4 
+    // investorModel.find({}).limit(4).skip(4) - skip first 4 and then return next 4
+    // investorModel.find({}).distinct("name") - only return distinct values in array   
+
+    
+
+    //const result = await investorModel.find({ "salary" :{ $gt : 100 }});
+    //const result = await investorModel.find({$or:[{company:"wipro"},{age:"24"}]});
+    //const result = await investorModel.find({$and:[{company:"wipro"},{age:"24"}]});
+ 
