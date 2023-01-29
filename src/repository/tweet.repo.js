@@ -11,7 +11,9 @@ class TweetRepository {
   }
   async get() {
     try {
-      const response = await Tweet.find();
+      const response = await Tweet.find({}).select({
+        __v: 0,
+      });
       return response;
     } catch (error) {
       throw error;
@@ -45,7 +47,7 @@ class TweetRepository {
 
   async getById(id) {
     try {
-      const response = await Tweet.findById(id);
+      const response = await Tweet.findById(id).select({ __v: 0 });
       return {
         response,
         getEmailAndContent: response.getEmailAndContent,

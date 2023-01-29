@@ -1,5 +1,5 @@
-const { Mongoose, Schema, default: mongoose, model } = require("mongoose");
-
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 const tweetSchema = new Schema(
   {
     content: {
@@ -9,30 +9,11 @@ const tweetSchema = new Schema(
     email: {
       type: String,
     },
-    name: {
-      type: String,
-    },
-    comment: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
-      },
-    ],
-  },
-  {
-    virtuals: {
-      getEmailAndContent: {
-        get() {
-          return { email: this.email, content: this.content };
-        },
-      },
-    },
   },
   { timestamps: true }
 );
 
 tweetSchema.pre("save", function (next) {
-  this.content = this.content + "saturday";
   console.log("pre");
   next();
 });
